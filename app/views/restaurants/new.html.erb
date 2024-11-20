@@ -1,0 +1,12 @@
+<div class="content-container">
+<h1> Add a new restaurant</h1>
+<div class="form-container">
+<%= simple_form_for(@restaurant, html: { class: "custom-form-class" }) do |f| %>
+  <%= f.input :name %>
+  <%= f.input :address %>
+    <%= f.input :phone_number %>
+    <%= f.input :category, collection: ['chinese', 'italian', 'japanese', 'french', 'belgian'], prompt: 'Select a category' %>
+  <%= f.submit "Send", class: "btn"%>
+<% end %>
+</div>
+</div>
