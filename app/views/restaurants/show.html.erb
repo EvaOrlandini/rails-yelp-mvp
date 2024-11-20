@@ -1,9 +1,17 @@
+<div class="content-container">
 <h1>Restaurant :</h1>
+<p class="restaurant-info"><b>Name :</b> <%= @restaurant.name %></p>
+<p class="restaurant-info"><b>Addres :</b> <%= @restaurant.address %></p>
+<p class="restaurant-info"><b>Addres :</b> <%= @restaurant.phone_number %></p>
+<p class="restaurant-info"><b>Category :</b> <%= @restaurant.category %></p>
 
-<ul>
-<li>Name : <%= @restaurant.name %></li>
-<li>Addres : <%= @restaurant.address %></li>
-<li>Addres : <%= @restaurant.phone_number %></li>
-<li>Category : <%= @restaurant.category %></li>
+<p><strong>Reviews</strong></p>
+<ul class="list-group">
+  <% @restaurant.reviews.each do |review| %>
+    <li class="list-group-item"><%= review.rating %> : <%= review.content %></li>
+  <% end %>
 </ul>
-<%= link_to "Back to the list", restaurants_path %>
+
+<%= link_to "Add a review", new_restaurant_review_path(@restaurant), class: "btn"%>
+<%= link_to "Back to the list", restaurants_path, class: "btn"%>
+</div>
